@@ -1,14 +1,12 @@
 package com.myproject.my_application.service.serviceimpl;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-// import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.myproject.my_application.entity.EmployeeDetails;
 import com.myproject.my_application.repository.EmployeeDeatilsRepo;
