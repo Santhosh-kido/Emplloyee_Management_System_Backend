@@ -61,11 +61,41 @@ A full-stack web application to manage employee records with Create, Read, Updat
 | GET    | `/search-by-name?name=${encodeURIComponent(name)}`  | Search employee by name         |
 | PUT    | `/update-emp/`                                      | Update employee details         |
 
+## Display Employees
 
-👤 Author
+<img width="1915" height="886" alt="image" src="https://github.com/user-attachments/assets/43fb2561-dba2-4c06-ab05-99d7050625ba" />
+
+## Searching Employee by Id
+
+<img width="1905" height="876" alt="image" src="https://github.com/user-attachments/assets/2a7c1888-afc0-4870-80dd-9d5621269eed" />
+
+## Searching Employee by Name
+Searching employees by partial name to retrieve all records that contain the entered text.
+
+<img width="1907" height="885" alt="image" src="https://github.com/user-attachments/assets/fe8d1799-e50e-4180-9c24-9ebbe6b61e31" />
+
+## Updating Employee
+## Before Updating
+
+<img width="1885" height="882" alt="image" src="https://github.com/user-attachments/assets/a35b97dc-7ba1-48d6-addf-911111fd53f6" />
+<img width="1600" height="881" alt="image" src="https://github.com/user-attachments/assets/fc362c5a-a76c-4226-be3a-2bc9853a0094" />
+
+## Adding an Employee
+
+<img width="1865" height="880" alt="image" src="https://github.com/user-attachments/assets/5af53be5-a979-4f26-ba49-25319b94e932" />
+
+## After Updating
+
+<img width="1658" height="878" alt="image" src="https://github.com/user-attachments/assets/1fe5947f-db53-4e5d-97bb-3f8dd3da7283" />
+
+## Deleting an Employee
+
+<img width="1821" height="884" alt="image" src="https://github.com/user-attachments/assets/d034e64e-fff0-4ca3-b920-b76802027b90" />
+<img width="1844" height="886" alt="image" src="https://github.com/user-attachments/assets/f61bdab1-7996-43bd-9512-2e3998fc62c3" />
+
 ## 👤 Author
 
 **Santhosh**  
-[GitHub](https://github.com/your-username)  
-[LinkedIn](https://www.linkedin.com/in/your-profile)
+[GitHub](https://github.com/Santhosh-kido)  
+[LinkedIn](https://www.linkedin.com/in/santhosh-r-b03226344/)
 
