@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="Employee_Management_System.css">
+    </head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="60" height="60" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="14" fill="#6c9bd1" stroke="white" stroke-width="2"/>
+                        <path d="M16 7C13.2 7 11.2 9 11.2 12C11.2 15 13.2 17 16 17C18.8 17 20.8 15 20.8 12C20.8 9 18.8 7 16 7Z" fill="white"/>
+                        <path d="M10 24C10 20 12.8 18 16 18C19.2 18 22 20 22 24V25.5H10V24Z" fill="white"/>
+                    </svg>
+                </div>
+                <h1>Employee Management System</h1>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Initial View -->
+            <div class="initial-view" id="initialView">
+                <button class="btn btn-primary" onclick="showEmployeeDetails()">Employee Details</button>
+            </div>
+
+            <!-- Employee Details Section -->
+            <div class="employee-details-section" id="employeeDetailsSection">
+                <div class="section-header">
+                    <h2>Employee Details</h2>
+                </div>
+
+                <div class="search-and-add-container">
+                    <div class="search-section">
+                        <div class="search-inputs">
+                            <div class="input-group">
+                                <label id="si" for="searchIdInput">ID:</label>
+                                <input type="number" id="searchIdInput" placeholder="Enter ID">
+                            </div>
+                            <div class="input-group">
+                                <label id="n" for="searchNameInput">Name:</label>
+                                <input type="text" id="searchNameInput" placeholder="Enter Name">
+                            </div>
+                            <button class="btn search-btn" onclick="performSearch()">Search</button>
+                        </div>
+                    </div>
+                    <div class="add-section">
+                        <button class="btn add-btn" onclick="openAddEmployeeModal()">+ Add Employee</button>
+                    </div>
+                </div>
+
+                <div id="tableContainer">
+                    <table class="employee-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Department</th>
+                                <th>Salary</th>
+                                <th>Date of Joining</th>
+                                <th>&nbsp;&nbsp;Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="employeeTableBody">
+                            <!-- Data will be populated dynamically from API -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Employee Modal -->
+    <div id="addEmployeeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Employee</h3>
+                <span class="close" onclick="closeModal('addEmployeeModal')">&times;</span>
+            </div>
+            <form id="addEmployeeForm">
+                <div class="form-group">
+                    <label for="addName">Full Name:</label>
+                    <input type="text" id="addName" required>
+                </div>
+                <div class="form-group">
+                    <label for="addEmail">Email Address:</label>
+                    <input type="email" id="addEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="addDepartment">Department:</label>
+                    <input type="text" id="addDepartment" required>
+                </div>
+                <div class="form-group">
+                    <label for="addSalary">Salary:</label>
+                    <input type="number" id="addSalary" required>
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addEmployeeModal')">Cancel</button>
+                    <button id ="submitBtn" type="submit" class="btn"  onclick="addEmployee()">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Update Employee Modal -->
+    <div id="updateEmployeeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Update Employee</h3>
+                <span class="close" onclick="closeModal('updateEmployeeModal')">&times;</span>
+            </div>
+            <form id="updateEmployeeForm">
+                <div class="form-group">
+                    <label for="updateId">Employee ID:</label>
+                    <input type="number" id="updateId" required readonly>
+                </div>
+                <div class="form-group">
+                    <label for="updateName">Full Name:</label>
+                    <input type="text" id="updateName" required>
+                </div>
+                <div class="form-group">
+                    <label for="updateEmail">Email Address:</label>
+                    <input type="email" id="updateEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="updateDepartment">Department:</label>
+                    <input type="text" id="updateDepartment" required>
+                </div>
+                <div class="form-group">
+                    <label for="updateSalary">Salary:</label>
+                    <input type="number" id="updateSalary" required>
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('updateEmployeeModal')">Cancel</button>
+                    <button type="submit" class="btn" onclick="updateEmployeeTable()" >Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View by ID Modal -->
+    <div id="viewByIdModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>View Employee by ID</h3>
+                <span class="close" onclick="closeModal('viewByIdModal')">&times;</span>
+            </div>
+            <div class="search-container">
+                <div class="form-group">
+                    <label for="searchId">Employee ID:</label>
+                    <input type="number" id="searchId" placeholder="Enter employee ID">
+                </div>
+                <button class="btn" onclick="searchEmployeeById()">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search by Name Modal -->
+    <div id="searchByNameModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Search Employee by Name</h3>
+                <span class="close" onclick="closeModal('searchByNameModal')">&times;</span>
+            </div>
+            <div class="search-container">
+                <div class="form-group">
+                    <label for="searchName">Employee Name:</label>
+                    <input type="text" id="searchName" placeholder="Enter employee name">
+                </div>
+                <button class="btn" onclick="searchEmployeeByName()">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Options Modal -->
+    <div id="editOptionsModal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3>Edit Options</h3>
+                <span class="close" onclick="closeModal('editOptionsModal')">&times;</span>
+            </div>
+            <div class="edit-options">
+                <button class="btn" onclick="openAddEmployeeModal(); closeModal('editOptionsModal');">Add Employee</button>
+                <button class="btn" onclick="openUpdateEmployeeModal(); closeModal('editOptionsModal');">Update Employee</button>
+                <button class="btn" onclick="openViewByIdModal(); closeModal('editOptionsModal');">View Employee by ID</button>
+                <button class="btn" onclick="openSearchByNameModal(); closeModal('editOptionsModal');">Search by Name</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteConfirmModal" class="modal confirmation-modal">
+        <div class="modal-content">
+            <div class="warning-icon">!</div>
+            <h3>Delete Employee</h3>
+            <p id="deleteMessage">Are you sure you want to delete this employee?</p>
+            <div class="modal-buttons">
+                <button class="btn" style="background-color: #28a745;" onclick="deleteEmployee()">OK</button>
+                <button class="btn btn-secondary" onclick="closeModal('deleteConfirmModal')">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div id="infoModal" class="modal confirmation-modal">
+        <div class="modal-content">
+            <div class="info-icon">ℹ️</div>
+            <h3 id="infoTitle">Information</h3>
+            <p id="infoMessage">This is an information message.</p>
+            <div class="modal-buttons">
+                <button class="btn" style="background-color: #6c9bd1;" onclick="closeInfoModal()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="Employee_Management_System.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96f81a4716b8c17e',t:'MTc1NTI1NDcyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
