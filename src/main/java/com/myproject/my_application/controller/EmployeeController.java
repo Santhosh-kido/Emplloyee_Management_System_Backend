@@ -22,17 +22,18 @@ import com.myproject.my_application.requests.AddEmployeeReq;
 import com.myproject.my_application.service.EmployeeService;
 
 @RestController
-// @CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
+// @CrossOrigin(origins = "*", allowedHeaders = "*", methods =
+// {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,
+// RequestMethod.DELETE})
 @CrossOrigin(origins = "http://127.0.0.1:5500")
-
 
 public class EmployeeController {
     @Autowired
     EmployeeService empService;
 
     @GetMapping("/get-employee")
-    public Object getAllEmployees() {
-        return empService.fetchAllEmployees();
+    public ResponseEntity<Object> getAllEmployees() {
+        return new ResponseEntity<>(empService.fetchAllEmployees(), HttpStatus.OK);
     }
 
     @GetMapping("/employees")
@@ -46,8 +47,13 @@ public class EmployeeController {
     }
 
     @GetMapping("/get-employee/{id}")
-    public Object getEmployeeById(@PathVariable int id) {
-        return empService.fetchEmployeeId(id);
+    public ResponseEntity<Object> getEmployeeById(@PathVariable int id) {
+        EmployeeDetails emp = empService.fetchEmployeeId(id);
+        if(emp != null){
+        return new ResponseEntity<>(emp, HttpStatus.OK);
+    }else{
+        return new ResponseEntity<>("Employee Not Found!!",HttpStatusCode.valueOf(404));
+    }
     }
 
     @GetMapping("/search-by-name")
@@ -55,20 +61,28 @@ public class EmployeeController {
         List<EmployeeDetails> response = new ArrayList<>();
         response = empService.searchByName(name);
         if (response.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Employee not found!!");
+            return new ResponseEntity<>("Employee not found!!", HttpStatusCode.valueOf(404));
         }
-        return new ResponseEntity<>(response,HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
 
     }
 
     @PostMapping("/add-employee")
-    public String postMethodName(@RequestBody AddEmployeeReq addEmpReq) {
-        return empService.addNewEmployee(addEmpReq);
+    public ResponseEntity<String> postMethodName(@RequestBody AddEmployeeReq addEmpReq) {
+        String result =  empService.addNewEmployee(addEmpReq);
+        if(result.equals("Employee alreday Exists!!")){
+            return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @PutMapping("/update-emp")
-    public String putMethodName(@RequestBody EmployeeDetails empDtls) {
-        return empService.updateEmployee(empDtls);
+    public ResponseEntity<String> putMethodName(@RequestBody EmployeeDetails empDtls) {
+        String result = empService.updateEmployee(empDtls);
+        if(result.equalsIgnoreCase("SUCCESS")){
+            return new ResponseEntity<>("Employee Updated Successfully!!", HttpStatus.OK);
+        }
+        return new ResponseEntity<>(result,HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping("/delete-employee/{id}")

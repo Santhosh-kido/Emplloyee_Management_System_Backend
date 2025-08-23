@@ -2,7 +2,9 @@ package com.myproject.my_application.service.serviceimpl;
 
 import java.time.LocalDate;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,18 +25,19 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Object fetchAllEmployees() {
         List<EmployeeDetails> empList = empRepo.findAll();
         if (empList.isEmpty()) {
-            return "No employees found!";
+            return "No employees found!!";
         }
         return empList;
     }
 
     // Fetch Employee By Id
     @Override
-    public Object fetchEmployeeId(int id) {
+    public EmployeeDetails fetchEmployeeId(int id) {
+        
         Optional<EmployeeDetails> emp = empRepo.findById(id);
         if (emp.isEmpty()) {
-            System.out.println("Employee not found");
-            return "Employee not found!!";
+            System.out.println("Employee not found!!");
+            return emp.get();
         }
         return emp.get();
     }
@@ -42,7 +45,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     // Search Employee By Name
     @Override
     public List<EmployeeDetails> searchByName(String name) {
-        List<EmployeeDetails> emp = empRepo.findByEmpName(name);
+        List<EmployeeDetails> emp = empRepo.findByEmpNameIgnoreCaseContaining(name);
         if (emp.isEmpty()) {
             return Collections.emptyList();
         }
@@ -52,6 +55,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     // Add New Employee
     @Override
     public String addNewEmployee(AddEmployeeReq addEmpReq) {
+        Optional<EmployeeDetails> emp = empRepo.findByEmpNameAndDeptAndMailAndSalary(addEmpReq.getEmpName(),addEmpReq.getDept(),addEmpReq.getMail(),addEmpReq.getSalary());
+        if (emp.isPresent()) {
+            return "Employee alreday Exists!!";
+        }
         EmployeeDetails empDetails = new EmployeeDetails();
         empDetails.setDept(addEmpReq.getDept());
         empDetails.setJoiningDt(LocalDate.now());
@@ -72,15 +79,15 @@ public class EmployeeServiceImpl implements EmployeeService {
             EmployeeDetails empDetails = optl.get();
             empDetails.setDept(empDtls.getDept());
             empDetails.setEmpName(empDtls.getEmpName());
-            empDetails.setJoiningDt(empDtls.getJoiningDt());
+            // empDetails.setJoiningDt(empDtls.getJoiningDt());
             empDetails.setSalary(empDtls.getSalary());
             empDetails.setMail(empDtls.getMail());
             empRepo.save(empDetails);
 
-            response = "Employe Updated successfully";
+            response = "SUCCESS";
 
         } else {
-            response = "Employee Not Exists";
+            response = "FAILURE";
         }
         return response;
     }

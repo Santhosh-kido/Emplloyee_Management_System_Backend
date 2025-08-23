@@ -9,7 +9,7 @@ public interface EmployeeService {
 
     Object fetchAllEmployees();
 
-    Object fetchEmployeeId(int id);
+    EmployeeDetails fetchEmployeeId(int id);
 
     String addNewEmployee(AddEmployeeReq addEmpReq);
 
