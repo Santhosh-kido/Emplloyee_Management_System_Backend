@@ -1,2 +1,2 @@
 # Emplloyee_Management_System
-Employee management system
+Frontend and Backend for Employee management system
