@@ -25,10 +25,20 @@ A full-stack web application to manage employee records with Create, Read, Updat
 ---
 
 ## 📁 Folder Structure
-<img width="949" height="322" alt="image" src="https://github.com/user-attachments/assets/fd2c12e7-2e8d-4d5e-9ed1-6340b2c7a6b1" />
+## 📁 Project Structure
 
-
----
+```plaintext
+Employee_Management_System/
+├── frontend/                          # UI code and assets
+│   ├── employee_management_system.html
+│   ├── employee_management_system.css
+│   └── employee_management_system.js
+├── backend/                           # Spring Boot application
+│   ├── src/
+│   ├── pom.xml
+│   └── application.properties
+└── README.md                          # Project overview (this file)
+```
 
 ⚙️ Setup Instructions
 
@@ -42,7 +52,8 @@ A full-stack web application to manage employee records with Create, Read, Updat
    spring.datasource.password=your_password
    spring.jpa.hibernate.ddl-auto=update
 3. Run the spring application
-   ```mvn spring-boot:run
+   ```properties
+   mvn spring-boot:run
 
 🔧 Frontend Setup
 
@@ -63,35 +74,40 @@ A full-stack web application to manage employee records with Create, Read, Updat
 
 ## Display Employees
 
-<img width="1915" height="886" alt="image" src="https://github.com/user-attachments/assets/43fb2561-dba2-4c06-ab05-99d7050625ba" />
+<img width="1809" height="881" alt="image" src="https://github.com/user-attachments/assets/47847ed2-0005-4c3c-b5e7-097a564c6807" />
+
 
 ## Searching Employee by Id
 
-<img width="1905" height="876" alt="image" src="https://github.com/user-attachments/assets/2a7c1888-afc0-4870-80dd-9d5621269eed" />
+<img width="1791" height="884" alt="image" src="https://github.com/user-attachments/assets/8e6feee0-8f93-4879-9a60-ae8085a0355b" />
 
 ## Searching Employee by Name
 Searching employees by partial name to retrieve all records that contain the entered text.
 
-<img width="1907" height="885" alt="image" src="https://github.com/user-attachments/assets/fe8d1799-e50e-4180-9c24-9ebbe6b61e31" />
+<img width="1825" height="889" alt="image" src="https://github.com/user-attachments/assets/bd197408-ff79-4268-beb3-0db9f88be306" />
 
 ## Updating Employee
+
 ## Before Updating
 
-<img width="1885" height="882" alt="image" src="https://github.com/user-attachments/assets/a35b97dc-7ba1-48d6-addf-911111fd53f6" />
-<img width="1600" height="881" alt="image" src="https://github.com/user-attachments/assets/fc362c5a-a76c-4226-be3a-2bc9853a0094" />
+<img width="1787" height="884" alt="image" src="https://github.com/user-attachments/assets/293d03c0-c936-4532-8a2f-80f1d38eadc8" />
 
-## Adding an Employee
-
-<img width="1865" height="880" alt="image" src="https://github.com/user-attachments/assets/5af53be5-a979-4f26-ba49-25319b94e932" />
+<img width="1749" height="891" alt="image" src="https://github.com/user-attachments/assets/c29564d3-8742-4a7e-a147-7d8587f33f7f" />
 
 ## After Updating
 
-<img width="1658" height="878" alt="image" src="https://github.com/user-attachments/assets/1fe5947f-db53-4e5d-97bb-3f8dd3da7283" />
+
+<img width="1764" height="882" alt="image" src="https://github.com/user-attachments/assets/660fae66-f432-4012-a19c-cbc47065aded" />
+
+## Adding an Employee
+
+<img width="1766" height="885" alt="image" src="https://github.com/user-attachments/assets/52086e88-5bca-4fc9-b605-26416ee7c2cb" />
 
 ## Deleting an Employee
 
-<img width="1821" height="884" alt="image" src="https://github.com/user-attachments/assets/d034e64e-fff0-4ca3-b920-b76802027b90" />
-<img width="1844" height="886" alt="image" src="https://github.com/user-attachments/assets/f61bdab1-7996-43bd-9512-2e3998fc62c3" />
+<img width="1744" height="887" alt="image" src="https://github.com/user-attachments/assets/cce21f29-37d9-4c23-b073-414722e77948" />
+<img width="1783" height="885" alt="image" src="https://github.com/user-attachments/assets/9ac5afb2-56ce-4977-b8f9-e0839b54e242" />
+
 
 ## 👤 Author
 
