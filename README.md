@@ -25,7 +25,6 @@ A full-stack web application to manage employee records with Create, Read, Updat
 ---
 
 ## 📁 Folder Structure
-## 📁 Project Structure
 
 ```plaintext
 Employee_Management_System/
