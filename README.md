@@ -36,7 +36,7 @@ Employee_Management_System/
 │   ├── src/
 │   ├── pom.xml
 │   └── application.properties
-└── README.md                          # Project overview (this file)
+└── README.md                          # Project overview 
 ```
 
 ⚙️ Setup Instructions
