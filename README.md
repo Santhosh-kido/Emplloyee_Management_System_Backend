@@ -73,39 +73,37 @@ Employee_Management_System/
 
 ## Display Employees
 
-<img width="1809" height="881" alt="image" src="https://github.com/user-attachments/assets/47847ed2-0005-4c3c-b5e7-097a564c6807" />
-
+<img width="1773" height="884" alt="image" src="https://github.com/user-attachments/assets/244ea700-c66a-484b-84ce-f7851899e828" />
 
 ## Searching Employee by Id
-
-<img width="1791" height="884" alt="image" src="https://github.com/user-attachments/assets/8e6feee0-8f93-4879-9a60-ae8085a0355b" />
+<img width="1816" height="881" alt="image" src="https://github.com/user-attachments/assets/4628e1dc-d76c-40a6-a36b-334cce3672d3" />
 
 ## Searching Employee by Name
 Searching employees by partial name to retrieve all records that contain the entered text.
 
-<img width="1825" height="889" alt="image" src="https://github.com/user-attachments/assets/bd197408-ff79-4268-beb3-0db9f88be306" />
+<img width="1784" height="882" alt="image" src="https://github.com/user-attachments/assets/df4e3358-c348-41aa-a0f0-f937b536b23d" />
 
 ## Updating Employee
 
 ## Before Updating
 
-<img width="1787" height="884" alt="image" src="https://github.com/user-attachments/assets/293d03c0-c936-4532-8a2f-80f1d38eadc8" />
-
-<img width="1749" height="891" alt="image" src="https://github.com/user-attachments/assets/c29564d3-8742-4a7e-a147-7d8587f33f7f" />
+<img width="1759" height="879" alt="image" src="https://github.com/user-attachments/assets/38c839ec-7ae9-49a6-951a-f0e1817d4c0a" />
+<img width="1761" height="885" alt="image" src="https://github.com/user-attachments/assets/925ff820-5231-42c5-b4a8-62f25036de57" />
 
 ## After Updating
-
-
-<img width="1764" height="882" alt="image" src="https://github.com/user-attachments/assets/660fae66-f432-4012-a19c-cbc47065aded" />
+<img width="1760" height="872" alt="image" src="https://github.com/user-attachments/assets/2d6e9693-8be6-4f0e-be2a-aedbba96402f" />
 
 ## Adding an Employee
 
-<img width="1766" height="885" alt="image" src="https://github.com/user-attachments/assets/52086e88-5bca-4fc9-b605-26416ee7c2cb" />
+<img width="1791" height="882" alt="image" src="https://github.com/user-attachments/assets/a20975fc-93ce-42e1-8773-10c22f65804c" />
+
+<img width="1763" height="882" alt="image" src="https://github.com/user-attachments/assets/133092b6-6b77-4777-b389-39d45459c02c" />
 
 ## Deleting an Employee
 
-<img width="1744" height="887" alt="image" src="https://github.com/user-attachments/assets/cce21f29-37d9-4c23-b073-414722e77948" />
-<img width="1783" height="885" alt="image" src="https://github.com/user-attachments/assets/9ac5afb2-56ce-4977-b8f9-e0839b54e242" />
+<img width="1725" height="880" alt="image" src="https://github.com/user-attachments/assets/0623845d-bddf-43f4-95e7-5f4169440086" />
+<img width="1769" height="883" alt="image" src="https://github.com/user-attachments/assets/d87252ef-2cec-44ed-998a-981269e3c5c2" />
+
 
 
 ## 👤 Author
